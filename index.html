@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg" type="image/png">
+
+    <title>BMW - The Ultimate Driving Machine</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fff;
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #1d1f20;
+            color: #fff;
+        }
+
+        header .logo img {
+            height: 50px;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        .hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: beige;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-btn {
+            background-color: #0066cc;
+            padding: 10px 20px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 5px;
+        }
+
+        .cta-btn:hover {
+            background-color: #004c99;
+        }
+
+        .models {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .models h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .model-cars {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .car {
+            width: 30%;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .car img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .car h3 {
+            font-size: 1.8rem;
+            margin: 10px 0;
+        }
+
+        .car p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .car a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .car a:hover {
+            text-decoration: underline;
+        }
+
+        .car img, .rare-car img {
+    width: 100%;
+    height: 250px; /* Ensures all images have a uniform height */
+    object-fit: cover; /* Maintains aspect ratio and prevents distortion */
+    border-radius: 10px;
+}
+
+        /* ADVANCED ABOUT US */
+        .about-advanced {
+            padding: 40px 20px;
+            text-align: center;
+            background-color: #505050;
+        }
+
+        .about-advanced h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .about-advanced p {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .about-advanced a {
+            background-color: #0066cc;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .about-advanced a:hover {
+            background-color: #004c99;
+        }
+
+/* EXPANDED FOOTER */
+footer {
+            background-color: #1d1f20;
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+        }
+
+        footer .footer-links {
+            margin-bottom: 15px;
+        }
+
+        footer .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        footer .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        footer .socials {
+            margin-top: 20px;
+        }
+
+        footer .socials a {
+            margin: 0 10px;
+        }
+
+        footer .socials img {
+            width: 30px;
+            height: 30px;
+        }
+        .rare-models {
+            padding: 40px 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .rare-models h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .rare-cars {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .rare-car {
+            width: 30%;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .rare-car img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .rare-car h3 {
+            font-size: 1.8rem;
+            margin: 10px 0;
+        }
+
+        .rare-car p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .rare-car a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .rare-car a:hover {
+            text-decoration: underline;
+        }
+                /* BMW Concept Cars */
+                .concept-car {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 50px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        /* Concept Cars Section */
+        .concept-cars {
+            padding: 40px 20px;
+            text-align: center;
+            background-color: rgb(41, 41, 41);
+        }
+        .concept-cars2 {
+            padding: 40px 20px;
+            text-align: center;
+            background-color: rgb(240, 236, 236);
+        }
+
+        .concept-cars h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #f4f4f4;
+        }
+
+        .concept-car {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 50px;
+            background: rgb(41, 41, 41);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        .concept-car2 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 50px;
+            background: rgb(245, 243, 243);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .concept-car img {
+            width: 70%;
+            height: 900px;
+            border-radius: 10px;
+        }
+        .concept-car2 img {
+            width: 60%;
+            height: 900px;
+            border-radius: 10px;
+            margin-right: 10px;
+        }
+
+        .concept-car-text {
+            width: 45%;
+            text-align: left;
+            margin-left: 220px;
+            margin-right: 220px;
+        }
+        
+        .concept-car-text2 {
+            width: 45%;
+            text-align: left;
+            margin-left: 220px;
+            margin-right: 220px;
+        }
+
+        .concept-car-text h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+        .concept-car-text2 h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            color: #000000;
+        }
+
+        .concept-car-text p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #fff;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .concept-car-text2 p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #000000;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+           cursor: url(bmw-m3-pointer-32x32.png), auto;
+    
+}
+
+a, button {
+    cursor: url('https://sweezy-cursors.com/wp-content/uploads/cursor/purple-bmw-m3/purple-bmw-m3-cursor-32x32.png'), pointer;
+}
+     
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="https://www.bmw.com/etc.clientlibs/settings/wcm/designs/bmwcom/base/resources/ci2020/img/logo-bmw-com-gray.svg" alt="BMW Logo" />
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#models">Models</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Video Background -->
+    <section id="home" class="hero">
+        <video autoplay muted loop >
+            <source src="https://cdn.pixabay.com/video/2023/06/17/167659-837413029_large.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <h1>The Ultimate Driving Machine</h1>
+            <p>Explore the future of driving with BMW</p>
+            <a href="#models" class="cta-btn">Discover Our Models</a>
+        </div>
+    </section>
+
+    <!-- Vehicle Showcase -->
+    <section id="models" class="models">
+        <h2>Our Models</h2>
+        <div class="model-cars">
+            <div class="car">
+                <img src="https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/freude/25x5/25x5-nsc.jpg?imwidth=1920" alt="BMW X5"  />
+                <h3>BMW X5</h3>
+                <p>Luxury SUV with advanced technology and performance.</p>
+                <a href="#">Learn More</a>
+            </div>
+            <div class="car">
+                <img src="https://images.pistonheads.com/nimg/49202/mceu_18290363411731496414242.jpg" alt="BMW M2" />
+                <h3>BMW M2</h3>
+                <p>Powerful coupe with unmatched driving performance.</p>
+                <a href="#">Learn More</a>
+            </div>
+            <div class="car">
+                <img src="https://imageio.forbes.com/specials-images/imageserve/66e7fbba1744cb01d7ccaac9/2024-BMW-i5-featured-image/960x0.jpg?format=jpg&width=960" alt="BMW i5" />
+                <h3>BMW i5</h3>
+                <p>Futuristic electric sedan for the sustainable driver.</p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rare BMW Models -->
+    <section class="rare-models">
+        <h2>Rare BMW Models</h2>
+        <div class="rare-cars">
+            <div class="rare-car">
+                <img src="https://cdn.motor1.com/images/mgl/eoKjQP/s3/bmw-m3-gtr-from-2005-s-need-for-speed-most-wanted.jpg" alt="BMW M3 GTR Strassenversion" />
+                <h3>BMW M3 GTR Strassenversion</h3>
+                <p>One of the most iconic limited-edition M models ever created.</p>
+                <a href="#">Learn More</a>
+            </div>
+            <div class="rare-car">
+                <img src="https://cdn.motor1.com/images/mgl/P3Gkq4/s1/1958-bmw-507-series-ii-for-sale.webp" alt="BMW 507" />
+                <h3>BMW 507</h3>
+                <p>One of the rarest classic BMWs with a rich heritage.</p>
+                <a href="#">Learn More</a>
+            </div>
+            <div class="rare-car">
+                <img src="https://cdn.motor1.com/images/mgl/KLr3M/s3/oletha-by-smit-vehicle-engineering.jpg" alt="BMW Z8" />
+                <h3>BMW Z8</h3>
+                <p>Elegant roadster that remains a true collector’s item.</p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    
+
+   
+    <br>
+     <br>
+
+     
+    <style>
+        .parallax {
+          /* The image used */
+          background-image: url("https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/freude/history-facts/hf-08-media-hd.jpg?imwidth=1920");
+        
+          /* Set a specific height */
+          min-height: 800px; 
+        
+          /* Create the parallax scrolling effect */
+          background-attachment: fixed;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+        </style>
+        <div class="parallax"></div>
+
+        <style>
+            .parallax2 {
+              /* The image used */
+              background-image: url("https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/freude/history-facts/hf-09-media-hd.jpg?imwidth=1920");
+            
+              /* Set a specific height */
+              min-height: 800px; 
+            
+              /* Create the parallax scrolling effect */
+              background-attachment: fixed;
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
+            </style>
+            <div class="parallax2"></div>
+
+ <!-- Concept Cars Section -->
+ <section class="concept-cars">
+    <h2>BMW Concept Car <br> [1972]</h2>
+
+    <!-- BMW Turbo Concept Car -->
+    <div class="concept-car">
+        <div class="concept-car-text">
+            <h3>BMW Turbo</h3>
+            <p>The BMW Turbo is possibly the best-known concept car on this list. Countless BMW fans all around the world adore it, and for good reason. First developed by BMW designers and engineers and showcased at the 1972 Olympics, the BMW Turbo is a dream come true for many. Its Gullwing doors, shark-like body, daring paint job, and truly sporty interior made “the Turbo” such a hit that BMW had to build a second vehicle to meet demands from car shows and fairs desperate to include the concept car in their exhibitions.  Behind the seats, the BMW Turbo was equipped with a 2.0 four-cylinder, straight-piped turbo engine, delivering 280 brake horsepower and taking it from 0-100 kilometers per hour in 6.6 seconds. As a concept and idea, there really isn’t anything like the BMW Turbo – but some elements spilled over to later models and entire series. For example, the BMW Turbo was the very first BMW to introduce the driver-oriented cockpit, a concept that would become a trademark for countless later models. And in terms of its design, it really isn’t a stretch to say that its aggressive stance, low center-of-gravity profile, and overall expression, created by then-BMW Design Studio Chief Paul Bracq, makes it an early sibling of the equally iconic BMW M1.</p>
+            
+        </div class="2">
+        <img src="https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/automotive-life/concept-cars/concept-cars-07-media-high.png?" alt="BMW Turbo Concept">
+    </div>
+</section>
+
+<style>
+    .parallax3{
+        /* The image used */
+        background-image: url("https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/automotive-life/concept-cars/concept-cars-01-stage-hd.png?imwidth=1920");
+      
+        /* Set a specific height */
+        min-height: 600px; 
+      
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
+    <div class="parallax3"></div>
+
+
+    <section class="concept-cars">
+<div class="concept-car2">
+    <div class="concept-car-text2">
+        <h3>BMW AVT [1981]<h3>
+        <p>To this day, the BMW AVT from 1981 remains one of BMW’s more mysterious concept vehicles. Very little is known about its background, but this doesn’t make it any less interesting. On the contrary, this ultra-futuristic non-drivable prototype has a unique role in BMW design and engineering history. Built to generate publicity for the opening of BMW’s new wind tunnel at the Ismaning/Ascheim test facility in 1980, the BMW AVT followed recent developments in the industry, which increasingly emphasized aerodynamics to reduce fuel consumption following the fuel crises in 1974 and 1979. With the opening of the wind tunnel, BMW accelerated research and development in this area, and the BMW AVT became a centerpiece in the efforts to leverage aerodynamics in BMW design. This is also where we find the origin of its name: AVT stands for Aerodynamischer Versuchsträger, or “aerodynamic test vehicle”. The BMW AVT cannot be driven. It is meant simply to take its place on top of the measuring plate in the middle of the wind tunnel and be a subject for tests and photographers. Similarly, it has no interior. The full-scale model was done by BMW designers collaborating with BMW aerodynamicists to create a truly unique concept “vehicle” which may not have any on-the-road descendants today, but nevertheless remains a crucial part of BMW design and engineering history.</p>
+        
+    </div class="3">
+    <img src="https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/automotive-life/concept-cars/concept-cars-06-media-high.png?imwidth=1920" alt="BMW AVT Concept">
+</div>
+
+<section>
+
+</section>
+        
+
+
+
+
+       <!-- ABOUT US (Advanced) -->
+       <section id="about" class="about-advanced" style="height:200px;">
+        <h2>About BMW</h2>
+        <p>Learn more about BMW's history, innovation, and commitment to excellence.</p>
+        <a href="https://www.bmw.com/en/automotive-life.html" target="_blank">Visit Official Website</a>
+    </section>
+
+
+    <!-- EXPANDED FOOTER -->
+    <footer id="contact">
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Service</a> | 
+            <a href="#">BMW Official</a>
+        </div>
+        <p>&copy; 2025 BMW Group | All Rights (DO NOT RESERVED) Reserved
+            copyright to BMW*
+        </p>
+        <div class="socials">
+            <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/twitter.png" alt="Twitter"></a>
+            <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram"></a>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.car a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert("You clicked on " + e.target.closest('.car').querySelector('h3').textContent);
+            });
+        });
+    </script>
+
+</body>
+</html>
